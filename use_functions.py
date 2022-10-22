@@ -11,9 +11,9 @@ while True:
     print('4. выход')
     choice = input('Выберите пункт меню: ')
 
-    def get_sum(str, type_input):
+    def get_sum(str, input_str):
         while not str.isdigit():
-            str = input(f'Введите сумму {type_input}: ')
+            str = input(input_str)
         return(int(str))
 
     def add_buy(sum, category = 'пополнение'):
@@ -22,12 +22,12 @@ while True:
         list_buy.append((now.strftime("%d/%m/%Y %H:%M:%S"), category, sum))
 
     if choice == '1':
-        sum_add = get_sum('', 'пополнения')
+        sum_add = get_sum('', 'Введите сумму пополнения: ')
         sum_account += sum_add
         add_buy(sum_add)
 
     elif choice == '2':
-        sum_buy = get_sum('', 'покупки')
+        sum_buy = get_sum('', 'Введите сумму покупки: ')
         if sum_buy > sum_account:
             print('Не достаточно средств на счете')
             continue
