@@ -19,15 +19,12 @@ while True:
     def add_buy(sum, category = 'пополнение'):
         buy = []
         now = datetime.now()
-        buy.append(now.strftime("%d/%m/%Y %H:%M:%S"))
-        buy.append(category)
-        buy.append(sum)
-        return(tuple(buy))
+        list_buy.append((now.strftime("%d/%m/%Y %H:%M:%S"), category, sum))
 
     if choice == '1':
         sum_add = get_sum('', 'пополнения')
         sum_account += sum_add
-        list_buy.append(add_buy(sum_add))
+        add_buy(sum_add)
 
     elif choice == '2':
         sum_buy = get_sum('', 'покупки')
@@ -38,7 +35,7 @@ while True:
             sum_account -= sum_buy
             now = datetime.now()
             str = input('Введите категорию покупки (12 символов): ')[:12]
-            list_buy.append(add_buy(-sum_buy, str))
+            add_buy(-sum_buy, str)
     elif choice == '3':
         print(f'{" " * 15}Дата|{" " * 3}Категория|{" " * 5}Сумма|')
         for date_buy, category, sum_buy in list_buy:

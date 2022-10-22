@@ -1,23 +1,11 @@
-def check_year(year):
-    if year == '1799':
-        return(True)
-    else:
-        return(False)
 
-year = input('Ввведите год рождения А.С.Пушкина:')
-while not check_year(year):
-    print("Не верно")
-    year = input('Ввведите год рождения А.С.Пушкина:')
+def check_answer(question, date):
+    answer = input(question)
+    while answer != date:
+        print('Не верно')
+        answer = input(question)
+
+check_answer('Ввведите год рождения А.С.Пушкина: ','1799')
 print('Верно')
-
-def check_day(day):
-    if day == '6':
-        return(True)
-    else:
-        return(False)
-
-day = input('В какой день июня родился Пушкин?')
-while not check_day(day):
-    print("Не верно")
-    day = input('В какой день июня родился Пушкин?')
+check_answer('Ввведите день рождения Пушкина: ','6')
 print('Верно')
